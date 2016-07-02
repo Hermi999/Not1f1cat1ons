@@ -8,7 +8,7 @@
  *
  * Date: 2016-30-06
  */
- 
+
 function Not1f1cat1ons (element_class_name, animation, hidden_position, visible_position, default_style, success_style, alert_style, warning_style, info_style){
 	this._notification_element;
 	this._notification_class;
@@ -38,8 +38,8 @@ function Not1f1cat1ons (element_class_name, animation, hidden_position, visible_
 
 	// VISIBLE POSITION
 	this._visible_position = {
-		"position": 		"absolute",
-		"top": 				"100px", 
+		"position": 		"fixed",
+		"top": 				"100px",
 		"right":  			"-2px",
 	}
 	if(visible_position){
@@ -48,8 +48,8 @@ function Not1f1cat1ons (element_class_name, animation, hidden_position, visible_
 
 	// HIDDEN POSITION
 	this._hidden_position = {
-		"position": 		"absolute",
-		"top": 				"100px", 
+		"position": 		"fixed",
+		"top": 				"100px",
 		"right":  			"-202px",
 	}
 	if(hidden_position){
@@ -58,22 +58,23 @@ function Not1f1cat1ons (element_class_name, animation, hidden_position, visible_
 
 	// DEFAULT STYLE
 	this._default_style = {
-		"width": 			"200px", 
-		"min-height": 		"30px", 
+		"width": 			"200px",
+		"min-height": 		"30px",
 		"border": 			"2px solid black",
 		"box-shadow": 		"0 0 5px black",
 		"border-radius": 	"6px 0 0 6px",
 		"background-color": "black",
-		"color": 			"white", 
+		"color": 			"white",
 		"display": 			"none",
 		"opacity": 			"1",
 		"padding": 			"8px 10px",
-		"font-weight": 		"bold"
+		"font-weight": 		"bold",
+		"z-index": 				"10000"
 	}
 	for(var prop in default_style){
-		this._default_style[prop] = default_style[prop];	
+		this._default_style[prop] = default_style[prop];
 	}
-	
+
 	// Set position and style of notification element
 	this._notification_element.css(this._hidden_position).css(this._default_style);
 
@@ -82,7 +83,7 @@ function Not1f1cat1ons (element_class_name, animation, hidden_position, visible_
 		"background-color": "#4caf50"
 	}
 	for(var prop in success_style){
-		this._success_style[prop] = success_style[prop];	
+		this._success_style[prop] = success_style[prop];
 	}
 
 	// WARNING STYLE
@@ -90,7 +91,7 @@ function Not1f1cat1ons (element_class_name, animation, hidden_position, visible_
 		"background-color": "#ffb300"
 	}
 	for(var prop in warning_style){
-		this._warning_style[prop] = warning_style[prop];	
+		this._warning_style[prop] = warning_style[prop];
 	}
 
 	// ALERT STYLE
@@ -98,7 +99,7 @@ function Not1f1cat1ons (element_class_name, animation, hidden_position, visible_
 		"background-color": "#f44336"
 	}
 	for(var prop in alert_style){
-		this._alert_style[prop] = alert_style[prop];	
+		this._alert_style[prop] = alert_style[prop];
 	}
 
 	// INFO STYLE
@@ -106,7 +107,7 @@ function Not1f1cat1ons (element_class_name, animation, hidden_position, visible_
 		"background-color": "#2196f3"
 	}
 	for(var prop in info_style){
-		this._info_style[prop] = info_style[prop];	
+		this._info_style[prop] = info_style[prop];
 	}
 }
 
@@ -121,16 +122,16 @@ Not1f1cat1ons.prototype.triggerNotification = function(type, html, style, animat
 	}
 
 	// If a notification is already visible
-	if($(this._notification_class).is(':visible')){
+	if((Number($(this._notification_class).css('opacity'))) > 0){
 		var lastElement = $($(this._notification_class)[$(this._notification_class).length-1]);
-		var lowerEdgeOfLastElement = lastElement.offset().top + lastElement.outerHeight();
+		var lowerEdgeOfLastElement = lastElement.offset().top - $(window).scrollTop() + lastElement.outerHeight();
 		lastElement.clone()
 					.appendTo(this._notification_element.parent())
 					.css(this._default_style)
 					.css(_style[type])
 					.css(this._hidden_position)
 					.css({"top": lowerEdgeOfLastElement + 5 + "px"});
-					
+
 
 		var lastElement = $($(this._notification_class)[$(this._notification_class).length-1]);
 		var ani = {};

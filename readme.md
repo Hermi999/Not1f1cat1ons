@@ -84,7 +84,7 @@ function triggerNotification(type, html, style, animation)
 MIT
 
 ### Author
-Created by **[HermannWagner]**
+Created by ** Hermann Wagner (hermann.wagner@rentog.com) **
 
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
@@ -92,4 +92,3 @@ Created by **[HermannWagner]**
 [//]: # (Markdown Cheatsheet: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
    [jQuery]: <https://jquery.com/>
-   [HermannWagner]: <mailto: hermann.wagner@rentog.com>

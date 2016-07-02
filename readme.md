@@ -1,6 +1,6 @@
 # Not1f1cat1ons
 
-Not1f1cat1ons is a JavaScript-Library for displaying notifications in your web application. 
+Not1f1cat1ons is a JavaScript-Library for displaying notifications in your web application.
 
 ### Version
 0.1
@@ -84,7 +84,7 @@ function triggerNotification(type, html, style, animation)
 MIT
 
 ### Author
-Created by **[Hermann Wagner]**
+Created by **[HermannWagner]**
 
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
@@ -92,4 +92,4 @@ Created by **[Hermann Wagner]**
 [//]: # (Markdown Cheatsheet: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
    [jQuery]: <https://jquery.com/>
-   [Hermann Wagner]: <mailto: hermann.wagner@rentog.com>
+   [HermannWagner]: <mailto: hermann.wagner@rentog.com>

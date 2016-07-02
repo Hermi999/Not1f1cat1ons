@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="jquery-3.0.0.js"></script>
+	<script type="text/javascript" src="../not1f1cat1ons-0.1.js"></script>
+</head>
+<body>
+	<button id="demo1a">click me</button>
+	<button id="demo1b">click me</button>
+	<button id="demo1c">click me</button>
+	<button id="demo1d">click me</button>
+	<div class="notify1"></div>
+
+	<br>
+	<br>
+
+	<button id="demo2a">click me</button>
+	<button id="demo2b">click me</button>
+	<button id="demo2c">click me</button>
+	<button id="demo2d">click me</button>
+	<div class="notify2"></div>
+
+
+	<script type="text/javascript">
+
+		// Demo 1 - without any custom animation or style
+			// 1) Register a new div element which should be used for displaying notifications
+			var notify1 = new Not1f1cat1ons("notify1");
+
+			// 2) If the event occurs which should trigger the notification call the "triggerNotification" function
+			$('#demo1a').click(function(){
+				notify1.triggerNotification("success", "Successfully clicked on <i>div-Element</i>");
+			});
+			$('#demo1b').click(function(){
+				notify1.triggerNotification("warning", "Warning. Clicked on <i>div-Element</i>");
+			});
+			$('#demo1c').click(function(){
+				notify1.triggerNotification("alert", "Alert. Clicked on <i>div-Element</i>");
+			});
+			$('#demo1d').click(function(){
+				notify1.triggerNotification("info", "Info. Clicked on <i>div-Element</i>");
+			});
+
+
+
+		// Demo 2 - with custom animation and style
+			// 1) Register a new div element which should be used for displaying notifications
+			var animation = {
+				show_duration: 1000,
+				visible_duration: 4000,
+				hide_duration: 500,
+				direction: "left"
+			};
+			var hidden_position = {
+				"position": "absolute",
+				"top": 		"500px",
+				"left": 	"-302px"
+			};
+			var visible_position = {
+				"position": "absolute",
+				"top": 		"500px",
+				"left": 	"-2px"
+			};
+			var default_style = {
+				"border": 		"none",
+				"box-shadow":  	"grey"
+			};
+			var success_style = {
+				"background-color": 	"black",
+				"font-size": 			"1.5em"
+			};
+			var alert_style = {
+				"background-color": 	"grey",
+				"font-size": 			"1em"
+			};
+			var warning_style = {
+				"background-color": 	"orange",
+				"font-size": 			"0.5em"
+			};
+			var info_style = {
+				"background-color": 	"yellow",
+				"font-size": 			"1.1em"
+			};
+
+			var notify2 = new Not1f1cat1ons("notify2", animation, hidden_position, visible_position, default_style, success_style, alert_style, warning_style, info_style);
+
+			// 2) If the event occurs which should trigger the notification call the "triggerNotification" function
+			$('#demo2a').click(function(){
+				notify2.triggerNotification("success", "Successfully clicked on <i>div-Element</i>");
+			});
+			$('#demo2b').click(function(){
+				notify2.triggerNotification("warning", "Warning. Clicked on <i>div-Element</i>");
+			});
+			$('#demo2c').click(function(){
+				notify2.triggerNotification("alert", "Alert. Clicked on <i>div-Element</i>");
+			});
+			$('#demo2d').click(function(){
+				notify2.triggerNotification("info", "Info. Clicked on <i>div-Element</i>");
+			});
+
+	</script>
+</body>
+</html>
